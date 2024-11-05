@@ -6,6 +6,7 @@ const props = defineProps<{
     texto1: string;
     texto2: string;
     texto3: string;
+    respostas: string[];
 
 }>();
 </script>
@@ -17,6 +18,7 @@ const props = defineProps<{
             <p class="p-1">{{ props.texto1 }}</p>
             <p class="p-1">{{ props.texto2 }}</p>
             <p class="p-1">{{ props.texto3 }}</p>
+            <p v-for="(resposta, index) in props.respostas" :key="index" class="p-1">{{ resposta }}</p>
         </div>
     </div>
 </template>
