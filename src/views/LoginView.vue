@@ -4,12 +4,12 @@ import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTer
 </script>
 
 <template>
-  <main class="w-screen h-screen flex items-center justify-center flex-col">
+  <main class="w-screen h-screen flex items-center justify-center flex-col justify-evenly">
     <h1 class="text-3xl text-cyan-50">Bem-vindo ao CommitChronicles</h1>
     <ComponenteTerminal/>
     <div class="flex gap-5">
-      <BotoesIniciais/>
-      <BotoesIniciais/>
+      <BotoesIniciais texto="Novo jogo"/>
+      <BotoesIniciais texto="Continuar"/>
     </div>
   </main>
 </template>
