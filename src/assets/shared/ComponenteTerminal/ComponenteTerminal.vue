@@ -6,7 +6,7 @@ const props = defineProps<{
     texto1: string;
     texto2: string;
     texto3: string;
-    respostas: [];
+    respostas: string[];
 
 }>();
 </script>

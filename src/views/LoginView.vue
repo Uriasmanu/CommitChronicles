@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BotoesIniciais from '@/assets/components/BotoesIniciais/BotoesIniciais.vue';
 import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTerminal.vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -8,6 +9,7 @@ const router = useRouter();
 function navigateTo() {
   router.push({ name: 'home' })
 }
+const respostas = ref<string[]>([]);
 </script>
 
 <template>
@@ -16,7 +18,8 @@ function navigateTo() {
     <ComponenteTerminal bash="bash" texto1="Bem-vindo ao CommitChronicles, aventureiro!" texto2="Sua missão é dominar os comandos de Git enquanto explora o mundo de código. Enfrente
                 desafios, avance por
                 diferentes níveis e se torne um verdadeiro mestre das versões."
-      texto3="Prepare-se para configurar sua identidade e registrar-se no reino do Git!" />
+      texto3="Prepare-se para configurar sua identidade e registrar-se no reino do Git!"
+      v-bind:respostas="respostas" /> />
 
     <div class="flex gap-5 sm:flex-row">
       <BotoesIniciais texto="Nova jornada" @click="navigateTo" />
