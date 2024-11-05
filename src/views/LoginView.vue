@@ -5,9 +5,9 @@ import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTer
 
 <template>
   <main class="w-screen h-screen flex items-center justify-center flex-col justify-evenly">
-    <h1 class="text-3xl text-cyan-50">Bem-vindo ao CommitChronicles</h1>
+    <h1 class="text-3xl text-cyan-50 text-center">Bem-vindo ao CommitChronicles</h1>
     <ComponenteTerminal/>
-    <div class="flex gap-5">
+    <div class="flex gap-5 sm:flex-row">
       <BotoesIniciais texto="Novo jogo"/>
       <BotoesIniciais texto="Continuar"/>
     </div>

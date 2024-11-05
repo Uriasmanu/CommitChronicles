@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="w-1/2">
+    <div class="w-1/2 sm:w-[350px]">
         <h2 class="bg-gray-500 text-cyan-50 p-3 rounded-t">bash</h2>
-        <div class="bg-black text-cyan-50 p-4 rounded-md rounded-b">
+        <div class="bg-black text-cyan-50 p-4 rounded-b">
             <p class="p-1">Bem-vindo ao CommitChronicles, jovem aventureiro!</p>
             <p class="p-1">Sua missão é dominar os comandos de Git enquanto explora o mundo de código. Enfrente
                 desafios, avance por
