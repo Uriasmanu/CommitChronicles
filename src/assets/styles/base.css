@@ -1,0 +1,30 @@
+/* base.css */
+
+/* Reseta as margens e preenchimentos para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Adiciona border-box para garantir que padding e border sejam incluídos nas dimensões */
+    font-family: "Spline Sans Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* Adiciona uma configuração básica de fonte e fundo, se desejar */
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    /* Altere conforme necessário */
+    background-color: #082F49;
+    /* Cor de fundo padrão, ajuste conforme desejado */
+    line-height: 1.5;
+    /* Espaçamento padrão entre linhas */
+}
+
+/* Também é uma boa prática incluir um estilo para links */
+a {
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    color: inherit;
+    /* Faz com que os links herdem a cor do texto pai */
+}
