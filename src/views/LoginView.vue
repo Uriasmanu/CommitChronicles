@@ -19,7 +19,7 @@ const respostas = ref<string[]>([]);
                 desafios, avance por
                 diferentes níveis e se torne um verdadeiro mestre das versões."
       texto3="Prepare-se para configurar sua identidade e registrar-se no reino do Git!"
-      v-bind:respostas="respostas" /> />
+      v-bind:respostas="respostas" /> 
 
     <div class="flex gap-5 sm:flex-row">
       <BotoesIniciais texto="Nova jornada" @click="navigateTo" />

@@ -4,11 +4,19 @@ import { ref, defineEmits } from 'vue';
 
 const emit = defineEmits(['enviar-respostas']);
 const resposta = ref('');
-// Função para enviar o comando e limpar o input
+
+// Expressões regulares para validar os comandos com qualquer texto entre aspas
+const regexUserName = /^git config --global user\.name ".+"$/;
+const regexUserEmail = /^git config --global user\.email ".+@.+\..+"$/;
+
+// Função para enviar o comando apenas se for válido
 function enviar() {
-    emit('enviar-respostas', resposta.value);
-    resposta.value = ''; // Limpa o campo de input
-    
+    if (regexUserName.test(resposta.value.trim()) || regexUserEmail.test(resposta.value.trim())) {
+        emit('enviar-respostas', resposta.value.trim());
+        resposta.value = ''; // Limpa o campo de input
+    } else {
+        alert("Por favor, insira um comando válido."); // Mensagem de alerta se o comando não for válido
+    }
 }
 
 </script>
@@ -17,7 +25,7 @@ function enviar() {
 
     <div class="flex gap-4">
         <!-- Input: Designation [h-12] & min-w-[12rem] -->
-        <input v-model="resposta"
+        <input v-model="resposta" @keydown.enter="enviar"
             class="h-12 w-full md:w-[25rem] rounded-lg border-emerald-500 indent-4 text-emerald-900 shadow-lg focus:outline-none focus:ring focus:ring-emerald-600"
             type="text" placeholder="escreva o comando" />
         <!-- Button: Submit [h-12] -->
