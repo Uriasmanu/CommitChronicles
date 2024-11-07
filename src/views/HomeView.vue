@@ -10,7 +10,7 @@ const respostas = ref<string[]>([]);
 function adicionarRespostas(resposta: string) {
   if (resposta.trim() !== '') {
     respostas.value.push(resposta);
-    console.log("Array de respostas atualizado:", respostas.value);
+
   }
 }
 
