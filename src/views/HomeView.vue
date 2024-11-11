@@ -33,9 +33,19 @@ async function enviarRespostas() {
       userEmail: userEmail,
     });
 
+    adicionarRespostas('Respostas enviadas com sucesso!')
     console.log('Respostas enviadas com sucesso:', response.data);
+
   } catch (error) {
     console.error('Erro ao enviar as respostas:', error);
+
+    if(axios.isAxiosError(error) && error.response?.status === 409) {
+      // Verificando se o erro é um erro 409 e exibindo a mensagem no terminal
+      adicionarRespostas('Jogador já existe!')
+    } else {
+      // Caso seja outro tipo de erro, exibe uma mensagem genérica
+      adicionarRespostas('Erro desconhecido ao enviar as respostas.');
+    }
   }
 }
 </script>
