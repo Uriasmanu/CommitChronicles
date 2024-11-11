@@ -28,7 +28,7 @@ async function enviarRespostas() {
     }
 
     // Enviar as informações extraídas para a API
-    const response = await axios.post('https://localhost:7214/api/Jogadores', {
+    const response = await axios.post('http://localhost:8081/api/Jogadores', {
       userName: userName,
       userEmail: userEmail,
     });
