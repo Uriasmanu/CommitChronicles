@@ -3,6 +3,7 @@ import ComponenteInput from '@/assets/shared/ComponenteInput/ComponenteInput.vue
 import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTerminal.vue';
 import { ref } from 'vue';
 import axios from 'axios';
+import router from '@/router';
 
 // Estado reativo para os comandos
 const respostas = ref<string[]>([]);
@@ -33,8 +34,13 @@ async function enviarRespostas() {
       userEmail: userEmail,
     });
 
-    adicionarRespostas('Respostas enviadas com sucesso!')
     console.log('Respostas enviadas com sucesso:', response.data);
+
+    // Após 5 segundos, navega para a página 'MissoesView'
+    setTimeout(() => {
+      router.push({ name: 'missoesView' }); // Navega para 'MissoesView'
+    }, 5000); // 5000ms = 5 segundos
+
 
   } catch (error) {
     console.error('Erro ao enviar as respostas:', error);
