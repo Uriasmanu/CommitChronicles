@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ComponenteInput from '@/assets/shared/ComponenteInput/ComponenteInput.vue';
 import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTerminal.vue';
-import { ref } from 'vue';
-import axios from 'axios';
 import router from '@/router';
+import axios from 'axios';
+import { ref } from 'vue';
 
 // Estado reativo para os comandos
 const respostas = ref<string[]>([]);
@@ -29,14 +29,15 @@ async function enviarRespostas() {
     }
 
     // Enviar as informações extraídas para a API
-    const response = await axios.post('http://localhost:8081/api/Jogadores', {
+    const response = await axios.post('http://localhost:8081/api/login', {
       userName: userName,
       userEmail: userEmail,
     });
 
     console.log('Respostas enviadas com sucesso:', response.data);
+
     adicionarRespostas('Respostas enviadas com sucesso!')
-    
+
     // Após 5 segundos, navega para a página 'MissoesView'
     setTimeout(() => {
       router.push({ name: 'missoesView' }); // Navega para 'MissoesView'
@@ -58,14 +59,13 @@ async function enviarRespostas() {
 </script>
 
 <template>
-  <main class="w-screen h-screen flex items-center justify-center flex-col justify-evenly">
-    <ComponenteTerminal bash="Primeira Missão: Configuração do Git" texto1="Para começar sua jornada, configure sua identidade com os comandos:"
+    <main class="w-screen h-screen flex items-center justify-center flex-col justify-evenly">
+    <ComponenteTerminal bash="Bem vindo(a) de volta a jornada" texto1="Para continuar, configure sua identidade com os comandos:"
       texto2="git config --global user.name 'Seu Nome'" texto3="git config --global user.email 'seuemail@exemplo.com'"
       v-bind:respostas="respostas" />
 
     <ComponenteInput @enviar-respostas="adicionarRespostas" />
     
-    <!-- Botão que chama a função de enviarRespostas -->
     <button 
       @click="enviarRespostas"
       class="h-12 min-w-[8rem] rounded-lg border-2 border-emerald-600 bg-emerald-500 text-emerald-50 shadow-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-emerald-600">

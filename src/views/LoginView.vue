@@ -6,9 +6,14 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-function navigateTo() {
+function navigateToHome() {
   router.push({ name: 'home' })
 }
+
+function navigateToContinua() {
+  router.push({ name: 'continuarView' })
+}
+
 const respostas = ref<string[]>([]);
 </script>
 
@@ -22,8 +27,8 @@ const respostas = ref<string[]>([]);
       v-bind:respostas="respostas" /> 
 
     <div class="flex gap-5 sm:flex-row">
-      <BotoesIniciais texto="Nova jornada" @click="navigateTo" />
-      <BotoesIniciais texto="Continuar" />
+      <BotoesIniciais texto="Nova jornada" @click="navigateToHome" />
+      <BotoesIniciais texto="Continuar" @click="navigateToContinua" />
     </div>
   </main>
 </template>
