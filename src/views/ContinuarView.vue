@@ -4,6 +4,7 @@ import ComponenteTerminal from '@/assets/shared/ComponenteTerminal/ComponenteTer
 import router from '@/router';
 import axios from 'axios';
 import { ref } from 'vue';
+import Cookies from 'js-cookie';
 
 // Estado reativo para os comandos
 const respostas = ref<string[]>([]);
@@ -29,7 +30,7 @@ async function enviarRespostas() {
     }
 
     // Enviar as informações extraídas para a API
-    const response = await axios.post('http://localhost:8081/api/login', {
+    const response = await axios.post('http://localhost:8081/api/Jogadores/login', {
       userName: userName,
       userEmail: userEmail,
     });
@@ -38,22 +39,18 @@ async function enviarRespostas() {
 
     adicionarRespostas('Respostas enviadas com sucesso!')
 
+    Cookies.set('auth_token', response.data.token, { expires: 1 });
+    const token = Cookies.get('auth_token'); // Retrieve the cookie value
+    console.log('Token from cookie:', token); // Log the token
+
     // Após 5 segundos, navega para a página 'MissoesView'
     setTimeout(() => {
       router.push({ name: 'missoesView' }); // Navega para 'MissoesView'
-    }, 5000); // 5000ms = 5 segundos
+    }, 4000); // 4000ms = 4 segundos
 
 
   } catch (error) {
     console.error('Erro ao enviar as respostas:', error);
-
-    if(axios.isAxiosError(error) && error.response?.status === 409) {
-      // Verificando se o erro é um erro 409 e exibindo a mensagem no terminal
-      adicionarRespostas('Jogador já existe!')
-    } else {
-      // Caso seja outro tipo de erro, exibe uma mensagem genérica
-      adicionarRespostas('Erro desconhecido ao enviar as respostas.');
-    }
   }
 }
 </script>
