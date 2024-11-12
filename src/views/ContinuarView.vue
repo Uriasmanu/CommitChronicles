@@ -46,7 +46,7 @@ async function enviarRespostas() {
     // Após 5 segundos, navega para a página 'MissoesView'
     setTimeout(() => {
       router.push({ name: 'missoesView' }); // Navega para 'MissoesView'
-    }, 4000); // 4000ms = 4 segundos
+    }, 3000); // 3000ms = 3 segundos
 
 
   } catch (error) {
