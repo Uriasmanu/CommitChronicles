@@ -51,6 +51,7 @@ async function enviarRespostas() {
 
   } catch (error) {
     console.error('Erro ao enviar as respostas:', error);
+    adicionarRespostas('Login invalido')
   }
 }
 </script>
