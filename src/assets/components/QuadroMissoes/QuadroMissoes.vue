@@ -36,30 +36,27 @@ const missoes = ref<Missao[]>([]);
 
 // Função para buscar os dados da API
 const ListarMissoes = async () => {
-    console.log('Iniciando requisição para buscar as missões...');
+  try {
+    // Fazendo a chamada para a API
+    const response = await axios.get('http://localhost:8081/api/Missao');
     
-    try {
-        // Fazendo a chamada para a API
-        const response = await axios.get('http://localhost:8081/api/Missao');
-        
-        // Verificando o retorno da API
-        console.log('Dados recebidos da API:', response.data);
-        
-        // Atribuindo os dados às missões
-        missoes.value = response.data;
-        
-        // Verificando o estado das missões após o recebimento dos dados
-        console.log('Missões atualizadas:', missoes.value);
-
-    } catch (error) {
-        // Log de erro caso a requisição falhe
-        console.error('Erro ao buscar as missões:', error);
-    }
+    // Verificando os dados recebidos
+    console.log('Dados recebidos da API:', response.data);
+    
+    // Atribuindo os dados às missões
+    missoes.value = response.data;
+    
+    // Verificando o estado das missões após o recebimento dos dados
+    console.log('Missões atualizadas:', missoes.value);
+  } catch (error) {
+    // Log de erro caso a requisição falhe
+    console.error('Erro ao buscar as missões:', error);
+  }
 };
 
 // Busca os dados quando o componente é montado
 onMounted(() => {
-    console.log('Componente montado, iniciando a busca das missões...');
-    ListarMissoes();
+  ListarMissoes();
 });
 </script>
+
