@@ -23,12 +23,12 @@ import MissoesInfos from '../MissoesInfos/MissoesInfos.vue';
 import { ref, onMounted } from 'vue';
 
 interface Missao {
-  Titulo: string;
-  Descricao: string;
-  ComandoEsperado: string;
-  Objetivo: string;
-  PontosDeExperiencia: number;
-  StatusConclusao: boolean;
+  titulo: string;
+  descricao: string;
+  comandoEsperado: string;
+  objetivo: string;
+  pontosDeExperiencia: number;
+  statusConclusao: boolean;
 }
 
 // Cria uma referência para armazenar os dados das missões
